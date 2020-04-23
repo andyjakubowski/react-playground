@@ -6,7 +6,7 @@ class UnitConverter extends React.Component {
     super(props);
 
     this.state = {
-      mg: 0,
+      mg: 1000,
     };
 
     this.handleValueChange = this.handleValueChange.bind(this);
@@ -15,6 +15,14 @@ class UnitConverter extends React.Component {
   handleValueChange(event) {
     const unit = event.target.name;
     const value = event.target.value;
+
+    if (value === '') {
+      this.setState({
+        mg: '',
+      });
+
+      return;
+    }
 
     switch (unit) {
       case 'kg': {
@@ -42,8 +50,8 @@ class UnitConverter extends React.Component {
   }
 
   render() {
-    const kg = this.state.mg / 1000000;
-    const g = this.state.mg / 1000;
+    const kg = this.state.mg / 1000000 || '';
+    const g = this.state.mg / 1000 || '';
 
     return (
       <>
