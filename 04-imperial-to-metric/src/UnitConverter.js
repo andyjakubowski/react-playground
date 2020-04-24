@@ -1,5 +1,6 @@
 import React from 'react';
 import UnitBox from './UnitBox';
+import './UnitConverter.css';
 
 class UnitConverter extends React.Component {
   constructor(props) {
@@ -72,11 +73,11 @@ class UnitConverter extends React.Component {
     }    
 
     return (
-      <>
+      <div className="UnitConverter">
         <UnitBox unit="mg" value={this.state.mgInputValue} onValueChange={this.handleValueChange} />
         <UnitBox unit="g" value={g} onValueChange={this.handleValueChange} />
         <UnitBox unit="kg" value={kg} onValueChange={this.handleValueChange} />
-      </>
+      </div>
     );
   }
 }
