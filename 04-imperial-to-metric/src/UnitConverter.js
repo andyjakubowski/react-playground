@@ -50,7 +50,7 @@ class UnitConverter extends React.Component {
       <div className="UnitConverter">
         {UNITS.map((unit) => {
           const value =
-            this.state.mg === "NaN" ? "" : this.state.mg * RATIOS[unit];
+            this.state.mg === "NaN" ? "" : this.state.mg / RATIOS[unit];
 
           return (
             <UnitBox
