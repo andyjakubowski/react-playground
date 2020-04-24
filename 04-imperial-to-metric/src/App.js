@@ -1,11 +1,12 @@
-import React from 'react';
-import UnitConverter from './UnitConverter';
-import './App.css';
+import React from "react";
+import UnitConverter from "./UnitConverter";
+import Header from "./Header";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>Welcome to Unit Converter!!</h1>
+      <Header />
       <UnitConverter />
     </div>
   );

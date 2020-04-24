@@ -1,6 +1,6 @@
 import React from "react";
 import UnitBox from "./UnitBox";
-import "./UnitConverter.css";
+import styles from "./UnitConverter.module.css";
 
 const UNITS = ["mg", "g", "kg", "ounce", "pound", "stone"];
 const RATIOS = {
@@ -50,7 +50,7 @@ class UnitConverter extends React.Component {
 
   render() {
     return (
-      <div className="UnitConverter">
+      <div className={styles.UnitConverter}>
         {UNITS.map((unit) => {
           const value =
             this.state.mg === "NaN" ? "" : this.state.mg / RATIOS[unit];
