@@ -2,11 +2,14 @@ import React from "react";
 import UnitBox from "./UnitBox";
 import "./UnitConverter.css";
 
-const UNITS = ["mg", "g", "kg"];
+const UNITS = ["mg", "g", "kg", "ounce", "pound", "stone"];
 const RATIOS = {
   mg: 1,
   g: 1000,
-  kg: 1000000,
+  kg: 1000 * 1000,
+  ounce: 28.35 * 1000,
+  pound: 453.6 * 1000,
+  stone: 224 * 28.35 * 1000,
 };
 
 class UnitConverter extends React.Component {
@@ -14,9 +17,9 @@ class UnitConverter extends React.Component {
     super(props);
 
     this.state = {
-      mg: 1000,
+      mg: 453600,
       activeUnit: "mg",
-      activeUnitValue: "1000",
+      activeUnitValue: "453600",
     };
 
     this.handleValueChange = this.handleValueChange.bind(this);
