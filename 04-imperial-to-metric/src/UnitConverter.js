@@ -7,6 +7,7 @@ class UnitConverter extends React.Component {
 
     this.state = {
       mg: 1000,
+      mgInputValue: '1000',
     };
 
     this.handleValueChange = this.handleValueChange.bind(this);
@@ -14,32 +15,41 @@ class UnitConverter extends React.Component {
 
   handleValueChange(event) {
     const unit = event.target.name;
-    const value = event.target.value;
+    let stringValue = event.target.value;
+    let numberValue;
 
-    if (value === '') {
-      this.setState({
-        mg: '',
-      });
+    if (stringValue === '') {
+      this.setState({ mg: NaN, mgInputValue: stringValue });
+      return;
+    }
 
+    numberValue = Number(stringValue);
+    if (Number.isNaN(numberValue)) {
+      this.setState({ mg: NaN, mgInputValue: stringValue });
       return;
     }
 
     switch (unit) {
       case 'kg': {
+        const mg = numberValue * 1000000;
         this.setState({
-          mg: value * 1000000,
+          mg,
+          mgInputValue: String(mg),
         });
         break;
       }
       case 'g': {
+        const mg = numberValue * 1000;
         this.setState({
-          mg: value * 1000,
+          mg,
+          mgInputValue: String(mg),
         });
         break;
       }
       case 'mg': {
         this.setState({
-          mg: value,
+          mg: numberValue,
+          mgInputValue: stringValue,
         });
         break;
       }
@@ -50,14 +60,22 @@ class UnitConverter extends React.Component {
   }
 
   render() {
-    const kg = this.state.mg / 1000000 || '';
-    const g = this.state.mg / 1000 || '';
+    let g;
+    let kg;
+
+    if (Number.isNaN(this.state.mg)) {
+      g = '';
+      kg = '';
+    } else {
+      g = this.state.mg / 1000;
+      kg = this.state.mg / 1000000;
+    }    
 
     return (
       <>
-        <UnitBox unit="kg" value={kg} onValueChange={this.handleValueChange} />
+        <UnitBox unit="mg" value={this.state.mgInputValue} onValueChange={this.handleValueChange} />
         <UnitBox unit="g" value={g} onValueChange={this.handleValueChange} />
-        <UnitBox unit="mg" value={this.state.mg} onValueChange={this.handleValueChange} />
+        <UnitBox unit="kg" value={kg} onValueChange={this.handleValueChange} />
       </>
     );
   }
