@@ -2,7 +2,7 @@ import React from "react";
 import UnitBox from "./UnitBox";
 import styles from "./UnitConverter.module.css";
 
-const UNITS = ["mg", "g", "kg", "ounce", "pound", "stone"];
+const UNITS = ["mg", "g", "kg", "ounce", "pound"];
 const RATIOS = {
   mg: 1,
   g: 1000,
@@ -27,7 +27,10 @@ class UnitConverter extends React.Component {
 
   handleValueChange(event) {
     const activeUnit = event.target.name;
-    const activeUnitValue = event.target.value;
+    const activeUnitValue =
+      event.nativeEvent.inputType === "deleteContentBackward"
+        ? ""
+        : event.target.value;
     let numberValue;
 
     if (activeUnitValue === "") {
@@ -53,7 +56,9 @@ class UnitConverter extends React.Component {
       <div className={styles.UnitConverter}>
         {UNITS.map((unit) => {
           const value =
-            this.state.mg === "NaN" ? "" : this.state.mg / RATIOS[unit];
+            this.state.mg === "NaN"
+              ? ""
+              : Number((this.state.mg / RATIOS[unit]).toFixed(3));
 
           return (
             <UnitBox

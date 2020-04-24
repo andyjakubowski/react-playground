@@ -1,0 +1,37 @@
+.UnitBox {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  padding-block-end: 16px;
+
+  background-color: white;
+}
+
+.UnitBox:not(:last-child) {
+}
+
+.Field {
+  border: none;
+  outline: none;
+  padding-block-start: 16px;
+  padding-block-end: 8px;
+  padding-inline-start: 16px;
+
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.UnitLabel {
+  margin: 0;
+  padding-inline-start: 16px;
+
+  color: #666;
+
+  font-size: 20px;
+}
+
+/* Positioning */
+/* Display */
+/* Colors */
+/* Type */
+/* Other */

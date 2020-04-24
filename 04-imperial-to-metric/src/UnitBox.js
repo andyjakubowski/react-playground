@@ -1,18 +1,19 @@
-import React from 'react';
-import './UnitBox.css';
+import React from "react";
+import styles from "./UnitBox.module.css";
 
 const UnitBox = function UnitBox(props) {
   return (
-    <div className="UnitBox">
+    <div className={styles.UnitBox}>
       <input
-        type="text"
+        type="number"
         name={props.unit}
+        className={styles.Field}
         value={props.value}
-        onChange={props.onValueChange}>
-      </input>
-      <p>Unit: {props.unit}</p>
+        onChange={props.onValueChange}
+      ></input>
+      <p className={styles.UnitLabel}>{props.unit}</p>
     </div>
   );
-}
+};
 
 export default UnitBox;
