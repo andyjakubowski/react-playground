@@ -1,23 +1,24 @@
 .UnitBox {
-  border-bottom: 1px solid #ccc;
+  /* border-bottom: 1px solid #ccc; */
   display: flex;
-  padding-inline-end: 16px;
-
+  flex-direction: column;
+  /* padding-inline-end: 16px; */
   background-color: white;
+  /* background: linear-gradient(to right, white, #eee); */
 }
 
 .FieldWrapper {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  padding-block-end: 16px;
+  margin-block-end: 8px;
 }
 
 .Field {
   border: none;
   box-sizing: border-box;
   outline: none;
-  padding-block-start: 16px;
+  padding-block-start: 8px;
   padding-block-end: 8px;
   padding-inline-start: 16px;
   padding-inline-end: 0;
@@ -38,7 +39,10 @@
 
 .Actions {
   display: flex;
+  flex-wrap: wrap;
+  /* justify-content: center; */
   align-items: center;
+  padding-inline-start: 8px;
 }
 
 .Action {
@@ -49,9 +53,8 @@
   justify-content: center;
   align-items: center;
   height: var(--size);
-  /* width: var(--size); */
-  padding-inline-start: 8px;
-  padding-inline-end: 8px;
+  padding-inline-start: 4px;
+  padding-inline-end: 4px;
 
   background-color: transparent;
 

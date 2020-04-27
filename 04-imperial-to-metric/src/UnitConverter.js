@@ -11,6 +11,7 @@ const RATIOS = {
   pound: 453.6 * 1000,
   stone: 224 * 28.35 * 1000,
 };
+const STEPS = [-1, -0.1, 0.1, 1];
 
 const formatUnitValue = function formatUnitValue(value) {
   return Number(value.toFixed(3));
@@ -91,7 +92,7 @@ class UnitConverter extends React.Component {
             <UnitBox
               key={unit}
               unit={unit}
-              steps={[-1, -0.1, 0.1, 1]}
+              steps={STEPS}
               value={
                 unit === this.state.activeUnit
                   ? this.state.activeUnitValue

@@ -1,8 +1,7 @@
 .UnitConverter {
-  display: flex;
-  flex-direction: column;
-
-  background-color: tomato;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 2px;
 }
 
 /* Positioning */
