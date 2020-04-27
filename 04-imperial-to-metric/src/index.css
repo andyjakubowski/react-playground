@@ -1,5 +1,9 @@
 @import-normalize;
 
+:root {
+  --color-interactive-primary: #080dff;
+}
+
 body {
   background-color: whitesmoke;
   margin: 0;
